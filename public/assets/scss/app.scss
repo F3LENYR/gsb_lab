@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  word-break: break-all;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  background: #212121;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: #fff;
+}
+
+.align-icons-chip {
+  cursor: pointer;
+  float: right;
+  font-size: 16px!important;
+  line-height: 32px!important;
+  padding-left: 8px!important;
+}
+
+.gsb__page-title {
+  text-align: center;
+  margin-top: 0 !important;
+  margin-bottom: 25px !important;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  h5 {
+    font-weight: bold;
+  }
+}
+
+.gsb__list-chem {
+  display: flex;
+  align-items: center;
+  img {
+    width: auto;
+    height: 50px;
+    box-sizing: border-box;
+    object-fit: contain;
+    margin-right: 15px;
+    filter: invert(1);
+  }
+}

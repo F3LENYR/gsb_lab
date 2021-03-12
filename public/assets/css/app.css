@@ -1,0 +1,18 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  word-break: break-all;
+}
+
+html, body {
+  margin: 0;
+}
+
+body {
+  background: #ddd;
+}
+
+.card {
+  background-color: #424242 !important;
+}
+/*# sourceMappingURL=app.css.map */
