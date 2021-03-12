@@ -1,14 +1,15 @@
 <?php
+namespace Medications;
 
-use Controllers\MedicationsController;
+use Models\MedicationModel;
 
-require_once('controllers/medicationsController.php');
+require_once('models/MedicationModel.php');
 
 $medicationsList = [];
-$controller = null;
+$model = null;
 
-$controller = new MedicationsController();
-$medicationsList = $controller->getMedicationsList();
+$model = new MedicationModel();
+$medicationsList = $model->getAllSubstances();
 
 ?>
 <div class="gsb__page-title">

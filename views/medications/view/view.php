@@ -1,25 +1,25 @@
 <?php
-$request = $_SERVER['REQUEST_URI'];
-$params = explode('/', $request);
+namespace Medications;
 
-$database = new PDO('mysql:host=localhost;dbname=gsb;charset=UTF8', 'root', '');
+use Models\MedicationModel;
 
+require_once('models/MedicationModel.php');
 
-if ($params[3]) {
-    $req = $database->query("SELECT * FROM `medications` WHERE `medication_id` = " . $params[3]);
-    $substance = $req->fetch();
+$model = new MedicationModel();
 
-    $therapeuticalEffects = [];
-    $req = $database->query("SELECT * FROM `therapeutical_effects` WHERE `medication_id` = " . $params[3]);
-    $therapeuticalEffects = $req->fetchAll();
+$substance = null;
+$therapeuticalEffects = [];
+$sideEffects = [];
+$interactions = [];
 
-    $sideEffects = [];
-    $req = $database->query("SELECT * FROM `side_effects` WHERE `medication_id` = " . $params[3]);
-    $sideEffects = $req->fetchAll();
+$params = explode('/', $_SERVER['REQUEST_URI']);
+$id = $params[3];
 
-    $interactions = [];
-    $req = $database->query("SELECT * FROM `interactions` INNER JOiN medications ON interactions.medication_id = medications.medication_id");
-    $interactions = $req->fetchAll();
+if ($id) {
+    $substance = $model->getSubstanceFromId($id);
+    $therapeuticalEffects = $model->getEffectsFromId($id);
+    $sideEffects = $model->getSideEffectsFromId($id);
+    $interactions = $model->getInteractions();
 }
 
 ?>

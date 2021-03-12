@@ -1,30 +1,50 @@
 <?php
+
 namespace Models;
 
-use Database;
+use Includes\Database;
 
-require_once('vendors/database.php');
+include('includes/database.php');
 
 
 class MedicationModel
 {
-    public $database = null;
+    public $database;
+    public $instance;
 
-    public function __construct() {
+    public function __construct()
+    {
+        $this->database = new Database();
+        $this->instance = $this->database->getPDO();
     }
 
-    public function getMedicationList() {
-        $database = Database::getInstance();
-        $database->query("SELECT * FROM `medications`");
-        $result = $database->resultSet();
-        return $result;
+    public function getAllSubstances()
+    {
+        $req = $this->instance->query("SELECT * FROM `medications`");
+        return $req->fetchAll();
     }
 
-    // static public function getMedication(int $substanceId) {
-    //     $database = Database::getInstance();
-    //     $database->query("SELECT * FROM `medications` WHERE `medication_id` = :substanceId");
-    //     $database->bind('substanceId', $substanceId);
-    //     $result = $database->resultSet();
-    //     return $result;
-    // }
+    public function getSubstanceFromId($id)
+    {
+        $req = $this->instance->query("SELECT * FROM `medications` WHERE `medication_id` = " . $id);
+        return $req->fetch();
+    }
+
+    public function getEffectsFromId($id)
+    {
+        $req = $this->instance->query("SELECT * FROM `effects` WHERE `medication_id` = " . $id);
+        return $req->fetchAll();
+    }
+
+    public function getSideEffectsFromId($id)
+    {
+        $req = $this->instance->query("SELECT * FROM `side_effects` WHERE `medication_id` = " . $id);
+        return $req->fetchAll();
+    }
+
+    public function getInteractions()
+    {
+        $req = $this->instance->query("SELECT * FROM `interactions` INNER JOiN medications ON interactions.medication_id = medications.medication_id");
+        return $req->fetchAll();
+    }
 }
