@@ -4,7 +4,7 @@ namespace Models;
 
 use Includes\Database;
 
-include('includes/database.php');
+require_once('includes/database.php');
 
 
 class MedicationModel

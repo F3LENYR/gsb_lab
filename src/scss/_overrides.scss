@@ -12,15 +12,11 @@
 
 .sidenav {
   background-color: #424242 !important;
-  a,
-  h5,
-  i.material-icons {
-    color: #fff !important;
-  }
 }
 
 .sidenav li > a,
 .sidenav li > a > i.material-icons {
+  color: #fff !important;
   transition: all 0.3s ease-in-out;
 }
 

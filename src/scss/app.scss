@@ -1,3 +1,5 @@
+@import url('./_overrides.scss');
+
 * {
   box-sizing: border-box;
   word-break: break-all;
@@ -19,6 +21,16 @@ h4,
 h5,
 p {
   color: #fff;
+}
+
+.align-icons {
+  font-size: 15px!important;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  width: 15px;
+  height: 15px;
+  line-height: 15px!important;
 }
 
 .align-icons-chip {
