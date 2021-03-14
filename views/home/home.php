@@ -1,3 +1,11 @@
+<?php
+
+use Includes\App;
+
+require_once('includes/App.php');
+
+$app = new App();
+?>
 <div class="gsb__page-title">
     <div style="margin: 0 auto">
         <h5>Accueil</h5>
@@ -6,7 +14,7 @@
 
 <div style="text-align:center">
     <a href="/medications/" class="btn btn-flat waves-effect waves-light blue">Voir les médicaments</a>
-    <br/>
-    <br/>
+    <br />
+    <br />
     <a href="/activities/" class="btn btn-flat waves-effect waves-light blue">Voir les activités</a>
 </div>

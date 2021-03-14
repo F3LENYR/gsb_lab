@@ -89,3 +89,47 @@ a {
 .input-field .prefix ~ .autocomplete-content {
   margin-left: 4rem !important;
 }
+
+#toast-container {
+  right: auto !important;
+  bottom: 2% !important;
+  left: 2% !important;
+  top: auto !important;
+  @media only screen and (max-width: 600px) {
+    right: auto !important;
+    bottom: 2% !important;
+    left: 2% !important;
+    top: auto !important;
+    .toast {
+      width: 95% !important;
+      border-radius: 0;
+    }
+  }
+}
+
+[type="checkbox"].filled-in:checked + span:not(.lever):after {
+  border: 2px solid #4caf50 !important;
+  background-color: #4caf50 !important;
+}
+
+[type="checkbox"] + span:not(.lever) {
+  line-height: 20px !important;
+}
+
+.suffix {
+  position: absolute;
+  width: 3rem;
+  font-size: 2rem;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+  top: 0.5rem;
+}
+
+.input-field .suffix ~ input,
+.input-field .suffix ~ textarea,
+.input-field .suffix ~ label,
+.input-field .suffix ~ .validate ~ label,
+.input-field .suffix ~ .helper-text,
+.input-field .suffix ~ .autocomplete-content {
+  margin-right: 4rem !important;
+}

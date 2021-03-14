@@ -17,7 +17,7 @@ module.exports = {
     extensions: ['.ts', '.js'],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/app'),
     // Specify the base path for all the assets within your
     // application. This is relative to the output path, so in
     // our case it will be ./public/assets
@@ -46,6 +46,9 @@ module.exports = {
     ]
   },
   plugins: [
+    // Configuration options for MiniCssExtractPlugin. Here I'm only
+    // indicating what the CSS outputted file name should be and
+    // the location
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',

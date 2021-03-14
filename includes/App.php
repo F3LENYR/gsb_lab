@@ -6,7 +6,6 @@ use DateTime;
 
 class App
 {
-
     public $request;
 
     public function __construct()
@@ -81,6 +80,9 @@ class App
                 case '/activities':
                     require_once('./views/activities/Activities.php');
                     break;
+                case '/login':
+                    require_once('./views/login/Login.php');
+                    break;
                 default:
                     http_response_code(404);
                     require_once('./views/404.php');
@@ -95,7 +97,10 @@ class App
                     require_once('./views/medications/Medications.php');
                     break;
                 case '/activities':
-                    require('./views/activities/Activities.php');
+                    require_once('./views/activities/Activities.php');
+                    break;
+                case '/login':
+                    require_once('./views/login/Login.php');
                     break;
                 default:
                     http_response_code(404);
@@ -105,14 +110,15 @@ class App
         }
     }
 
-    public function time_elapsed_string($datetime, $full = false) {
+    public function time_elapsed_string($datetime, $full = false)
+    {
         $now = new DateTime;
         $ago = new DateTime($datetime);
         $diff = $now->diff($ago);
-    
+
         $diff->w = floor($diff->d / 7);
         $diff->d -= $diff->w * 7;
-    
+
         $string = array(
             'y' => 'ans',
             'm' => 'mois',
@@ -129,7 +135,7 @@ class App
                 unset($string[$k]);
             }
         }
-    
+
         if (!$full) $string = array_slice($string, 0, 1);
         return $string ?  ' il y a ' . implode(', ', $string) : 'à l\'instant';
     }

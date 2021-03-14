@@ -4,7 +4,7 @@
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel public/assets/src/app/app.ts --out-file public/assets/dist/app/app.js --source-maps inline"
+    "webpack": "webpack"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,6 @@
   "dependencies": {
     "@types/jquery": "^3.5.5",
     "@types/materialize-css": "^1.0.8",
-    "babel-loader": "^8.2.2",
     "compression-webpack-plugin": "^7.1.2",
     "css-loader": "^5.1.2",
     "eslint-loader": "^4.0.2",
@@ -30,8 +29,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "postcss-loader": "^5.2.0",
     "style-loader": "^2.0.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack-shell-plugin": "^0.5.0"
+    "uglifyjs-webpack-plugin": "^2.2.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.34",

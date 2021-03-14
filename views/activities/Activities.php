@@ -1,22 +1,24 @@
 <?php
-
 namespace Activites;
 
-use DateTime;
 use Models\ActivitiesModel;
 use Includes\App;
+use Includes\Auth;
 
 require_once('includes/App.php');
 require_once('models/ActivitiesModel.php');
+
+session_start();
 
 $activities = [];
 $model = null;
 $isParticipating = false;
 
 $model = new ActivitiesModel();
-$activities = $model->getAllActivities();
 $app = new App();
+$auth = new Auth();
 
+$activities = $model->getAllActivities();
 ?>
 <div class="gsb__page-title">
     <div style="position: absolute">
@@ -33,8 +35,14 @@ $app = new App();
                         <div>
                             <i class="material-icons align-icons">query_builder</i> <?= $app->time_elapsed_string($activity['created_at']) ?>
                         </div>
+
+                        <!-- TODO: check if user -->
                         <div>
-                            <button class="btn waves-effect waves-light blue" id="participate"><?= $isParticipating ? 'Quitter' : 'Participer' ?></button>
+                            <button class="btn waves-effect waves-light blue" id="participate-event">Participer</button>
+                        </div>
+
+                        <div class="tooltipped" data-position="bottom" data-tooltip="Vous devez être connecté pour participer">
+                            <button disabled class="btn waves-effect waves-light blue" id="participate-event">Participer</button>
                         </div>
                     </li>
                 <?php endforeach; ?>

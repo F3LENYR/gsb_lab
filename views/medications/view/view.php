@@ -35,7 +35,7 @@ if ($id) {
 <div style="text-align:center">
     <p><b><?= $substance['class'] ?></b></p>
     <p><?= $substance['raw_formule'] ?></p>
-    <img src="/dist/img/<?= $substance['chem_formule'] ?>" style="height: auto; width: 150px; filter: invert(1);margin:20px">
+    <img src="/dist/app/img/<?= $substance['chem_formule'] ?>" style="height: auto; width: 150px; filter: invert(1);margin:20px">
     <p><?= $substance['content'] ?></p>
 </div>
 
@@ -77,7 +77,7 @@ if ($id) {
                 <?php foreach ($interactions as $interaction) : ?>
                     <li class="collection-item gsb__list-chem">
                         <div style="width:fit-content;margin-right:15px" class="hide-on-small-only">
-                            <img src="/dist/img/<?= $interaction['chem_formule'] ?>" style="max-width: 50px;transform: scale(1.5);">
+                            <img src="/dist/app/img/<?= $interaction['chem_formule'] ?>" style="max-width: 50px;transform: scale(1.5);">
                         </div>
                         <div style="width:100%">
                             <div style="    width: fit-content;
