@@ -40,6 +40,9 @@ class App
                 case '/activities':
                     $currentRoute = 'activities';
                     break;
+                case '/login':
+                    $currentRoute = 'login';
+                    break;
                 default:
                     $currentRoute = '';
                     break;
@@ -54,6 +57,9 @@ class App
                     break;
                 case '/activities':
                     $currentRoute = 'activities';
+                    break;
+                case '/login':
+                    $currentRoute = 'login';
                     break;
                 default:
                     $currentRoute = '';

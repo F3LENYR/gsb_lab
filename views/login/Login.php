@@ -2,9 +2,26 @@
 
 namespace Views;
 
+use Controllers\LoginController;
+
+
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: welcome.php");
+    exit;
+}
+
+require_once('controllers/LoginController.php');
+
 class Login
 {
+    public $controller = null;
 
+    public function __construct() {
+        $this->controller = new LoginController();
+        // $_SESSION['email'] = $this->controller->$_SESSION['email'];
+        // $_SESSION['password'] = $this->controller->$_SESSION['password'];
+        // echo $this->controller->success;
+    }
 }
 ?>
 <div class="gsb__page-title">
@@ -17,15 +34,15 @@ class Login
     </div>
 </div>
 <div>
-    <form id="loginForm" method="post">
+    <form id="loginForm" method="post" action="/controllers/LoginController.php">
         <div class="row">
             <div class="input-field col s12">
                 <input id="input-email" name="email" type="text" class="validate" required>
-                <label for="email">Email *</label>
+                <label for="input-email">Email *</label>
             </div>
             <div class="input-field col s12">
-                <input id="input-password" type="password" class="validate" required>
-                <label for="password">Mot de passe *</label>
+                <input id="input-password" name="password" type="password" class="validate" required>
+                <label for="input-password">Mot de passe *</label>
             </div>
         </div>
         <div style="text-align:center">

@@ -3,7 +3,6 @@ namespace Activites;
 
 use Models\ActivitiesModel;
 use Includes\App;
-use Includes\Auth;
 
 require_once('includes/App.php');
 require_once('models/ActivitiesModel.php');
@@ -16,7 +15,6 @@ $isParticipating = false;
 
 $model = new ActivitiesModel();
 $app = new App();
-$auth = new Auth();
 
 $activities = $model->getAllActivities();
 ?>

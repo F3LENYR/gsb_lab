@@ -9,7 +9,6 @@ $app = new App();
 $app->removeSlashFromUrl();
 
 $currentRoute = $app->getNav();
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -30,8 +29,8 @@ $currentRoute = $app->getNav();
             case 'activities':
                 echo "Nos activités";
                 break;
-            case 'activities':
-                echo "Nos activités";
+            case 'login':
+                echo "Connexion";
                 break;
         }
         ?>
