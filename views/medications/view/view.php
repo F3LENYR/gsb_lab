@@ -86,15 +86,6 @@ if ($id) {
                                 <p style="font-size:small"><?= $interaction['raw_formule'] ?></p>
                                 <p style="font-size:small;font-weight:bold"><?= $interaction['class'] ?></p>
                             </div>
-                            <div style="    display: inline-block;
-    text-align: right;
-    float: right;
-    align-items: center;">
-                                <div style="text-align:right">
-                                    <a href="/medications/view/<?= $interaction['medication_id'] ?>" class="secondary-content btn btn-floating waves-effect waves-light btn-flat green tooltipped" data-position="left" data-tooltip="Voir ce médicament">
-                                        <i class="material-icons">visibility</i></a>
-                                </div>
-                            </div>
 
                             <div style="margin-top:15px">
                                 <?php if ($interaction['dangerosity'] == 'dangerous') : ?>

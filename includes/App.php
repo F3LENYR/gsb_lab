@@ -40,6 +40,12 @@ class App
                 case '/activities':
                     $currentRoute = 'activities';
                     break;
+                case '/activities/view/' . $params[3] && $params[3]:
+                    $currentRoute = 'activities';
+                    break;
+                case '/activities/view/' . $params[3] . '/participate' && $params[3]:
+                    $currentRoute = 'activities';
+                    break;
                 case '/login':
                     $currentRoute = 'login';
                     break;
@@ -85,6 +91,12 @@ class App
                     break;
                 case '/activities':
                     require_once('./views/activities/Activities.php');
+                    break;
+                case $params[3] ? '/activities/view/' . $params[3] : false:
+                    require_once('./views/activities/view/View.php');
+                    break;
+                case $params[3] ? '/activities/view/' . $params[3] . '/participate' : false:
+                    require_once('./views/activities/view/participate/Participate.php');
                     break;
                 case '/login':
                     require_once('./views/login/Login.php');
