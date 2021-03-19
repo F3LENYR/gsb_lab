@@ -69,14 +69,21 @@ export class App {
 
         // TODO: AJAX request
         jQuery(() => {
-          if (state == true) {
-            this.materialize.openToast("success", "Activité rejointe");
-          } else {
-            this.materialize.openToast(
-              "error",
-              "Erreur : tous les champs ne sont pas remplis"
-            );
+          if (output.error) {
+
           }
+          if (output.success) {
+            
+          }
+          // if (output.error == false) {
+          //   this.materialize.openToast("success", "Activité rejointe");
+          // } else {
+          //   this.materialize.openToast(
+          //     "error",
+          //     "Erreur : tous les champs ne sont pas remplis"
+          //   );
+          // }
+
           //   $("#participate-event").removeClass("blue");
           //   $("#participate-event").addClass("red");
           //   $("#participate-event").text("Quitter");

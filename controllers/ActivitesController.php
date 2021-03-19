@@ -2,22 +2,38 @@
 
 namespace Controllers;
 
+use Models\ActivitiesModel;
+
+// header('Content-type:application/json;charset=utf-8');
+
 class ActivitesController
 {
+    public $data = '';
 
     public function __construct()
     {
-        if (isset($_POST['activity_id']) && isset($_POST['name']) && isset($_POST['surname'])) {
-            return $this->participateTo($_POST['activity_id']);
+        $activityId = $_POST['activity_id'];
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        if (isset($activityId) && isset($name) && isset($surname)) {
+            $this->participateTo($activityId, $name, $surname);
         }
     }
 
-    //     // TODO: check if user
-    public function participateTo(int $activityId)
+    public function participateTo(int $activityId, String $name, String $surname)
     {
-        echo var_dump($_POST);
-        return $activityId;
+        $activityModel = new ActivitiesModel();
+        if ($activityModel->getParticipant($activityId, $name, $surname)) {
+            $this->data = json_encode([
+                "success" => true,
+            ]);
+        } else {
+            $this->data = json_encode([
+                "error" => true,
+            ]);
+        }
     }
 }
-?>
-test
+
+$activity = new ActivitesController();
+echo $activity->data;
