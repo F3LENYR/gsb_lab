@@ -2,7 +2,8 @@
 
 use Includes\App;
 
-require_once('includes/App.php');
+define('__ROOT__', $_SERVER['DOCUMENT_ROOT']);
+require_once(__ROOT__ . '/includes/App.php');
 
 $app = new App();
 

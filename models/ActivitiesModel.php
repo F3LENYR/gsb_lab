@@ -4,7 +4,7 @@ namespace Models;
 
 use Includes\Database;
 
-include_once('/includes/Database.php');
+require_once(__ROOT__ . '/includes/Database.php');
 
 class ActivitiesModel
 {
@@ -31,7 +31,7 @@ class ActivitiesModel
 
     public function getParticipant(int $activityId, String $name, String $surname)
     {
-        $req = $this->instance->query("SELECT * FROM `participants` WHERE `activity_id` = " . $activityId . "`name` = " . $name . " AND `surname` = " . $surname);
-        return $req->fetch();
+        $req = $this->instance->query("SELECT * FROM `participants` WHERE `activity_id` = " . $activityId . " AND `name` = " . $name . " AND `surname` = " . $surname);
+        return $req;
     }
 }
