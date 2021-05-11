@@ -1,4 +1,4 @@
-import jQuery from "jquery";
+import $ from 'jquery';
 import { Materialize } from "./materialize";
 
 export class App {
@@ -7,11 +7,11 @@ export class App {
   public btnTogglePswdVisibility!: JQuery<HTMLElement>;
   public participateForm!: JQuery<HTMLElement>;
 
-  constructor(public materialize: Materialize) {
+  constructor(public materialize?: Materialize) {
     /*
      *   NOTE: DOM Elements listeners
      */
-    jQuery(() => {
+    $(() => {
       this.btnParticipate = $("#participate-event").on("click", () => {
         console.log("participate");
         if ($("form[name='participate']").validate().checkForm()) {
@@ -73,7 +73,7 @@ export class App {
 
           }
           if (output.success) {
-            
+
           }
           // if (output.error == false) {
           //   this.materialize.openToast("success", "Activité rejointe");

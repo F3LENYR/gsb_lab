@@ -37,8 +37,11 @@ $currentRoute = $app->getNav();
         ?>
     </title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="/dist/app/js/app.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
 <body>
@@ -59,11 +62,6 @@ $currentRoute = $app->getNav();
         <li><a href="/" class="waves-effect waves-light <?= $currentRoute == 'home' ? 'active' : '' ?>"><i class="material-icons">home</i> Accueil</a></li>
         <li><a href="/medications" class="waves-effect waves-light <?= $currentRoute == 'medications' ? 'active' : '' ?>"><i class="material-icons">medication</i> Médicaments</a></li>
         <li><a href="/activities" class="waves-effect waves-light <?= $currentRoute == 'activities' ? 'active' : '' ?>"><i class="material-icons">local_activity</i> Activités</a></li>
-
-        <div style="display: grid;margin: 20px 50px 0 50px;">
-            <a href="/login" class="btn btn-flat waves-effect waves-light blue">Connexion</a>
-            <a href="/register" style="margin-top:10px" class="btn btn-flat transparent waves-effect waves-light">Inscription</a>
-        </div>
     </ul>
 
     <div class="container">
@@ -79,6 +77,7 @@ $currentRoute = $app->getNav();
             </div>
         </div>
     </div>
+    <script src="/dist/app/js/app.min.js"></script>
 </body>
 
 </html>

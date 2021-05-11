@@ -1,13 +1,27 @@
 export class Materialize {
   constructor() {
-    jQuery(() => {
-      /*
-       *   Materialize init components
-       */
-      $("#slide-out").sidenav();
-      $(".tabs").tabs();
-      $(".tooltipped").tooltip();
-      $(".collapsible").collapsible();
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('#slide-out');
+      var instances = M.Sidenav.init(elems);
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.tabs');
+      var instances = M.Tabs.init(elems);
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.tooltipped');
+      var instances = M.Tooltip.init(elems);
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.collapsible');
+      var instances = M.Collapsible.init(elems);
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.carousel');
+      var instances = M.Carousel.init(elems, {
+        fullWidth: true,
+        indicators: true
+      });
     });
   }
 

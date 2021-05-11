@@ -1,13 +1,19 @@
 import './scss/app.scss';
 import './scss/_overrides.scss';
-import 'materialize-css/dist/css/materialize.min.css';
-import 'materialize-css/dist/js/materialize.min';
 
-import { App } from 'C:/wamp64/www/src/ts/app';
+import { App } from './ts/app';
 import { Materialize } from './ts/materialize';
 
-const jqueryValidation = require('jquery-validation');
+const jquery_validation = require('jquery-validation');
+const jquery = require('jquery');
 
-let app = new App(new Materialize());
 
-export default app;
+const mat_css  = require('materialize-css/dist/css/materialize.min.css');
+const mat_js = require('materialize-css/dist/js/materialize.min');
+
+
+
+let app = new App();
+let materialize = new Materialize();
+
+export default [app, materialize];

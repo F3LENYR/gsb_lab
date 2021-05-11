@@ -45,9 +45,10 @@ module.exports = {
     // indicating what the CSS outputted file name should be and
     // the location
     new webpack.ProvidePlugin({
-      $: ["jquery", "jquery.validate"],
-      jQuery: ["jquery", "jquery.validate"],
-      "window.jQuery": ["jquery", "jquery.validate"],
+      $: ["jquery", "jquery.validation"],
+      jQuery: ["jquery", "jquery.validation"],
+      "window.$": ["jquery", "jquery.validation"],
+      "window.jQuery": ["jquery", "jquery.validation"],
     }),
   ],
 };
