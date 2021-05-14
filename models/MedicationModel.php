@@ -42,9 +42,9 @@ class MedicationModel
         return $req->fetchAll();
     }
 
-    public function getInteractions()
+    public function getInteractionsFromId($id)
     {
-        $req = $this->instance->query("SELECT * FROM `interactions` INNER JOiN medications ON interactions.medication_id = medications.medication_id");
+        $req = $this->instance->query("SELECT * FROM `interactions` INNER JOIN medications ON interactions.medication_id = medications.medication_id AND interactions.medication_target_id = " . $id);
         return $req->fetchAll();
     }
 }

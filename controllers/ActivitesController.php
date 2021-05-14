@@ -26,26 +26,10 @@ class ActivitesController
     public function participateTo(int $activityId, String $name, String $surname)
     {
         $activityModel = new ActivitiesModel();
-        if ($activityModel->getParticipant($activityId, $name, $surname) == false) {
-            $this->data = json_encode([
-                "success" => true,
-                "result" => $activityModel->getParticipant($activityId, $name, $surname)
-            ]);
-        } else {
-            $this->data = json_encode([
-                "success" => true,
-                "result" => $activityModel->getParticipant($activityId, $name, $surname)
-            ]);
-        }
-        // if ($query->array_column()->ob_get_length > 0) {
-        //     $this->data = json_encode([
-        //         "success" => true,
-        //     ]);
-        // } else {
-            // $this->data = json_encode([
-            //     "error" => true,
-            // ]);
-        // }
+        $this->data = json_encode([
+            "success" => $name != null && $surname != null ? true : false,
+            "exists" => $activityModel->getParticipant($activityId, $name, $surname)
+        ]);
     }
 }
 
