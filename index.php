@@ -10,6 +10,8 @@ $app = new App();
 $app->removeSlashFromUrl();
 
 $currentRoute = $app->getNav();
+
+$page_title = '';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -33,6 +35,9 @@ $currentRoute = $app->getNav();
             case 'login':
                 echo "Connexion";
                 break;
+            default:
+                echo $page_title;
+                break;
         }
         ?>
     </title>
@@ -45,12 +50,14 @@ $currentRoute = $app->getNav();
 </head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper blue darken-3">
-            <a href="javascript:void(0)" data-target="slide-out" class="brand-logo sidenav-trigger" style="margin: 0"><img style="width: 40px; height: 40px; margin: 10px;" src="/dist/app/img/Logo%20GSB.png"></a>
-            <a href="javascript:void(0)" data-target="slide-out" class="sidenav-trigger brand-logo" style="display: block;margin: 0"><img style="width: 40px; height: 40px; margin: 10px;" src="/dist/app/img/Logo%20GSB.png"></a>
-        </div>
-    </nav>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper blue darken-3">
+                <a href="javascript:void(0)" data-target="slide-out" class="brand-logo center sidenav-trigger" style="margin: 0"><img style="width: 40px; height: 40px; margin: 10px;" src="/dist/app/img/Logo%20GSB.png"></a>
+                <a href="javascript:void(0)" data-target="slide-out" class="brand-logo center sidenav-trigger" style="display: block;margin: 0"><img style="width: 40px; height: 40px; margin: 10px;" src="/dist/app/img/Logo%20GSB.png"></a>
+            </div>
+        </nav>
+    </div>
 
     <ul id="slide-out" class="sidenav">
         <a href="/" style="margin:20px">

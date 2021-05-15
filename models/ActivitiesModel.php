@@ -3,6 +3,7 @@
 namespace Models;
 
 use Includes\Database;
+use PDO;
 
 require_once(__ROOT__ . '/includes/Database.php');
 
@@ -31,7 +32,21 @@ class ActivitiesModel
 
     public function getParticipant(int $activityId, String $name, String $surname)
     {
-        $req = $this->instance->query("SELECT * FROM `participants` WHERE `activity_id` = " . $activityId . " AND `name` = " . $name . " AND `surname` = " . $surname);
-        return $req;
+        $req = $this->instance->prepare("SELECT * FROM `participants` WHERE `activity_id` = " . $activityId . " AND `name` = " . $name . " AND `surname` = " . $surname . "");
+        $req->setFetchMode(PDO::FETCH_ASSOC);
+        return $req->fetch();
+    }
+
+    public function addParticipant(int $activityId, String $name, String $surname)
+    {
+        if ($this->getParticipant($activityId, $name, $surname) == true) {
+            return false;
+        } else {
+            $req = $this->instance->prepare("INSERT INTO `participants` VALUES(0, :activity_id, :name, :surname)");
+            $req->bindParam(':activity_id', $activityId);
+            $req->bindParam(':name', $name);
+            $req->bindParam(':surname', $surname);
+            return $req->execute();
+        }
     }
 }

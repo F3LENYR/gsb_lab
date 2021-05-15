@@ -34,16 +34,16 @@ class App
                 case '/medications':
                     $currentRoute = 'medications';
                     break;
-                case '/medications/view/' . $params[3] && $params[3]:
+                case '/medications/view/' . $params[3]:
                     $currentRoute = 'medications';
                     break;
                 case '/activities':
                     $currentRoute = 'activities';
                     break;
-                case '/activities/view/' . $params[3] && $params[3]:
+                case '/activities/view/' . $params[3]:
                     $currentRoute = 'activities';
                     break;
-                case '/activities/view/' . $params[3] . '/participate' && $params[3]:
+                case '/activities/view/' . $params[3] . '/participate':
                     $currentRoute = 'activities';
                     break;
                 case '/login':
@@ -148,7 +148,7 @@ class App
         );
         foreach ($string as $k => &$v) {
             if ($diff->$k) {
-                $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+                $v = $diff->$k . ' ' . $v;
             } else {
                 unset($string[$k]);
             }

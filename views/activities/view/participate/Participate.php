@@ -16,17 +16,15 @@ $id = $params[3];
 if ($id) {
     $activity = $model->getActivityFromId($id);
 }
+
+$page_title = "Participer à \"" . $activity['label'] . "\"";
 ?>
-<div class="gsb__page-title">
-    <div style="position: absolute">
-        <a onclick="window.history.back()" class="btn btn-floating waves-effect waves-light tooltipped green" data-position="bottom" data-tooltip="Revenir en arrière"><i class="material-icons">arrow_back</i></a>
-    </div>
-    <div style="margin: 0 auto">
-        <h5>Participer à "<?= $activity['label'] ?>"</h5>
-    </div>
+<?php include('./includes/partials/pagetitle.php') ?>
+<div class="scale-transition" id="loader">
+    <?php include('./includes/partials/loader.php') ?>
 </div>
 
-<div style="margin:20px">
+<div style="margin:20px" class="scale-transition scale-out hidden" id="wait-loader">
     <form name="participate">
         <input id="activity-id" type="hidden" hidden value="<?= $id ?>">
         <div class="input-field col s6">
