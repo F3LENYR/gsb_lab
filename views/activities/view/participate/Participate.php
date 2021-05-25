@@ -37,5 +37,7 @@ $page_title = "Participer à \"" . $activity['label'] . "\"";
         </div>
     </form>
 
-    <button type="submit" class="btn blue waves-effect waves-light" id="participate-event">Participer</button>
+    <div class="center-text">
+        <button type="submit" class="btn blue waves-effect waves-light" id="participate-event">Participer</button>
+    </div>
 </div>

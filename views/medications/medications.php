@@ -31,6 +31,15 @@ $page_title = 'Médicaments';
                             <input id="name" type="text" class="validate">
                             <label for="name">Nom de la substance à rechercher</label>
                         </div>
+                        <div class="input-field col s12">
+                            <select class="validate blue">
+                                <option value="" disabled selected>Choisissez un type</option>
+                                <option value="1">Anticonvulsivant</option>
+                                <option value="2">Neuroleptique</option>
+                                <option value="3">Somnifère</option>
+                            </select>
+                            <label>Type de substance</label>
+                        </div>
                         <h5>Par sentiments</h5>
                         <div class="row center-align">
                             <div class="col s4 center-align">

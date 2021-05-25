@@ -1,27 +1,22 @@
 export class Materialize {
+  
   constructor() {
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('#slide-out');
-      var instances = M.Sidenav.init(elems);
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.tabs');
-      var instances = M.Tabs.init(elems);
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.tooltipped');
-      var instances = M.Tooltip.init(elems);
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.collapsible');
-      var instances = M.Collapsible.init(elems);
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.carousel');
-      var instances = M.Carousel.init(elems, {
+    document.addEventListener("DOMContentLoaded", () => {
+      let sidenav = document.querySelectorAll("#slide-out");
+      M.Sidenav.init(sidenav);
+      let tabs = document.querySelectorAll(".tabs");
+      M.Tabs.init(tabs);
+      let tooltips = document.querySelectorAll(".tooltipped");
+      M.Tooltip.init(tooltips);
+      let collapse = document.querySelectorAll(".collapsible");
+      M.Collapsible.init(collapse);
+      let carousel = document.querySelectorAll(".carousel");
+      M.Carousel.init(carousel, {
         fullWidth: true,
-        indicators: true
+        indicators: true,
       });
+      let select = document.querySelectorAll("select");
+      M.FormSelect.init(select);
     });
   }
 

@@ -27,8 +27,8 @@ $page_title = $activity['label'];
 
 <div class="scale-transition scale-out hidden" id="wait-loader">
     <div class="center-align">
-    <img src="/dist/app/img/<?= $activity['illustration'] ?>" style="height: auto; width: 150px; filter: invert(1);margin:20px">
-    <p><?= $activity['content'] ?></p>
+    <img src="/dist/app/img/<?= $activity['illustration'] ?>" style="height: auto; width: 300px;margin:20px">
+    <p style="margin: 20px"><?= $activity['content'] ?></p>
     <a class="btn btn-flat blue waves-effect waves-light" href="/activities/view/<?= $activity['activity_id'] ?>/participate">Participer à cette activité</a>
     </div>
 </div>

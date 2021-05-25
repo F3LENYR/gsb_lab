@@ -31,14 +31,15 @@ $page_title = $substance['label'];
 </div>
 
 <div class="scale-transition scale-out hidden" id="wait-loader">
-    <div class="center-align">
+    <div class="center-align" style="margin-bottom: 25px">
         <p><b><?= $substance['class'] ?></b></p>
         <p><?= $substance['raw_formule'] ?></p>
         <img src="/dist/app/img/<?= $substance['chem_formule'] ?>" style="height: auto; width: 150px; filter: invert(1);margin:20px">
         <p><?= $substance['content'] ?></p>
     </div>
 
-    <div class="row" style="margin-top:20px">
+
+    <div class="row">
         <div class="col s12">
             <ul class="tabs">
                 <li class="tab col s3"><a href="#effects" class="active">Effets thérapeutiques</a></li>
@@ -48,11 +49,11 @@ $page_title = $substance['label'];
         </div>
         <div id="effects" class="col s12">
             <div style="margin:20px">
-                <?php foreach ($therapeuticalEffects as $effect) : ?>
+                <?php foreach ($therapeuticalEffects as $tEffect) : ?>
                     <div class="chip">
-                        <?= $effect['label'] ?>
-                        <?php if ($effect['explaination']) : ?>
-                            <i class="material-icons tooltipped align-icons-chip" data-position="bottom" data-tooltip="<?= $effect['explaination'] ?>">help</i>
+                        <?= $tEffect['label'] ?>
+                        <?php if ($tEffect['explaination']) : ?>
+                            <i class="material-icons tooltipped align-icons-chip" data-position="bottom" data-tooltip="<?= $tEffect['explaination'] ?>">help</i>
                         <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
@@ -60,11 +61,11 @@ $page_title = $substance['label'];
         </div>
         <div id="sideEffects" class="col s12">
             <div style="margin:20px">
-                <?php foreach ($sideEffects as $effect) : ?>
+                <?php foreach ($sideEffects as $sEffect) : ?>
                     <div class="chip">
-                        <?= $effect['label'] ?>
-                        <?php if ($effect['explaination']) : ?>
-                            <i class="material-icons tooltipped align-icons-chip" data-position="bottom" data-tooltip="<?= $effect['explaination'] ?>">help</i>
+                        <?= $sEffect['label'] ?>
+                        <?php if ($sEffect['explaination']) : ?>
+                            <i class="material-icons tooltipped align-icons-chip" data-position="bottom" data-tooltip="<?= $sEffect['explaination'] ?>">help</i>
                         <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
@@ -80,8 +81,7 @@ $page_title = $substance['label'];
                                     <img src="/dist/app/img/<?= $interaction['chem_formule'] ?>" style="max-width: 50px;transform: scale(1.5);">
                                 </div>
                                 <div style="width:100%">
-                                    <div style="    width: fit-content;
-    display: inline-block;">
+                                    <div style="width:fit-content;display: inline-block;">
                                         <b class="title" style="font-size:large"><?= $interaction['label'] ?></b>
                                         <p style="font-size:small"><?= $interaction['raw_formule'] ?></p>
                                         <p style="font-size:small;font-weight:bold"><?= $interaction['class'] ?></p>
@@ -109,9 +109,7 @@ $page_title = $substance['label'];
                                                     <i class="material-icons">help</i> Voir l'explication
                                                 </div>
                                                 <div class="collapsible-body" style="border-color: transparent;">
-                                                    <?php if (isset($interaction['explaination'])) : ?>
-                                                        <p><?= $interaction['explaination'] ?></p>
-                                                    <?php endif; ?>
+                                                    <p><?= $interaction['explaination'] ?></p>
                                                 </div>
                                             </li>
                                         </ul>

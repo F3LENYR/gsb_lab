@@ -44,7 +44,7 @@ class MedicationModel
 
     public function getInteractionsFromId($id)
     {
-        $req = $this->instance->query("SELECT * FROM `interactions` INNER JOIN medications ON interactions.medication_target_id = " . $id);
+        $req = $this->instance->query("SELECT * FROM `interactions` INNER JOIN `medications` WHERE medications.medication_id != $id AND interactions.interaction_id = $id");
         return $req->fetchAll();
     }
 }

@@ -7,8 +7,6 @@ use Models\ActivitiesModel;
 define('__ROOT__', $_SERVER['DOCUMENT_ROOT']);
 require_once(__ROOT__ . '/models/ActivitiesModel.php');
 
-// header('Content-type:application/json;charset=utf-8');
-
 class ActivitesController
 {
     public $data = '';
@@ -18,33 +16,32 @@ class ActivitesController
         $activityId = $_POST['activity_id'];
         $name = $_POST['name'];
         $surname = $_POST['surname'];
+        $state = $_POST['state'];
         if (isset($activityId) && isset($name) && isset($surname)) {
-            $this->participateTo($activityId, $name, $surname);
+            $this->participateTo($activityId, $name, $surname, $state);
         }
     }
 
-    public function participateTo(int $activityId, String $name, String $surname)
+    public function participateTo(int $activityId, String $name, String $surname, bool $state)
     {
         $activityModel = new ActivitiesModel();
 
-        $success = $name != null && $surname != null ? true : false;
-
-        if ($activityModel->getParticipant($activityId, $name, $surname) == 0) {
-            $activityModel->addParticipant($activityId, $name, $surname);
+        $exists = $activityModel->getParticipant($activityId, $name, $surname);
+        $added = $activityModel->addParticipant($activityId, $name, $surname);
+        if ($added == true) {
             $this->data = json_encode([
-                "success" => $success,
-                "exists" => false,
-                "added" => $activityModel->getParticipant($activityId, $name, $surname),
-            ]);
-        } else {
-            $this->data = json_encode([
-                "success" => $success,
-                "exists" => true,
-                "added" => $activityModel->getParticipant($activityId, $name, $surname),
+                "exists" => $exists,
+                "added" => true,
+                "state" => false
             ]);
         }
-
-
+        else if ($added == false) {
+            $this->data = json_encode([
+                "exists" => $exists,
+                "added" => false,
+                "state" => true
+            ]);
+        }
     }
 }
 
