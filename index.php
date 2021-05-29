@@ -53,8 +53,10 @@ $page_title = '';
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper blue darken-3">
-                <a href="javascript:void(0)" data-target="slide-out" class="brand-logo center sidenav-trigger" style="margin: 0"><img style="width: 40px; height: 40px; margin: 10px;" src="/dist/app/img/Logo%20GSB.png"></a>
-                <a href="javascript:void(0)" data-target="slide-out" class="brand-logo center sidenav-trigger" style="display: block;margin: 0"><img style="width: 40px; height: 40px; margin: 10px;" src="/dist/app/img/Logo%20GSB.png"></a>
+                <a href="javascript:void(0)" data-target="slide-out" class="brand-logo center sidenav-trigger" style="margin: 0">
+                    <img style="width: 40px; height: 40px; margin: 10px;" src="/dist/app/img/Logo%20GSB.png"></a>
+                <a href="javascript:void(0)" data-target="slide-out" class="brand-logo center sidenav-trigger" style="display: block;margin: 0">
+                    <img style="width: 40px; height: 40px; margin: 10px;" src="/dist/app/img/Logo%20GSB.png"></a>
             </div>
         </nav>
     </div>
@@ -66,9 +68,19 @@ $page_title = '';
                 <h5 style="color:#fff">GSB</h5>
             </div>
         </a>
-        <li><a href="/" class="waves-effect waves-light <?= $currentRoute == 'home' ? 'active' : '' ?>"><i class="material-icons">home</i> Accueil</a></li>
-        <li><a href="/medications" class="waves-effect waves-light <?= $currentRoute == 'medications' ? 'active' : '' ?>"><i class="material-icons">medication</i> Médicaments</a></li>
-        <li><a href="/activities" class="waves-effect waves-light <?= $currentRoute == 'activities' ? 'active' : '' ?>"><i class="material-icons">local_activity</i> Activités</a></li>
+        <li>
+            <a href="/" class="waves-effect waves-light <?= $currentRoute == 'home' ? 'active' : '' ?>"><i class="material-icons">home</i> Accueil</a>
+        </li>
+        <li>
+            <a href="/medications" class="waves-effect waves-light <?= $currentRoute == 'medications' ? 'active' : '' ?>">
+                <i class="material-icons">medication</i> Médicaments
+            </a>
+        </li>
+        <li>
+            <a href="/activities" class="waves-effect waves-light <?= $currentRoute == 'activities' ? 'active' : '' ?>">
+                <i class="material-icons">local_activity</i> Activités
+            </a>
+        </li>
     </ul>
 
     <div class="container">

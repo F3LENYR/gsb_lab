@@ -68,19 +68,16 @@ export class App {
       type: "post",
       success: (output) => {
         let json_output = JSON.parse(output);
-        console.log(json_output);
-
         if (json_output.added == true) {
           $("#participate-event").removeClass("red");
           $("#participate-event").addClass("blue");
           $("#participate-event").text("Participer");
-          this.materialize.openToast("success", "Activité rejointe");
-        } 
-        if (json_output.added == false) {
+          this.materialize.openToast("success", "Activité quittée");
+        } else {
           $("#participate-event").removeClass("blue");
           $("#participate-event").addClass("red");
           $("#participate-event").text("Quitter");
-          this.materialize.openToast("success", "Activité quittée");
+          this.materialize.openToast("success", "Activité rejointe");
         }
       },
     });

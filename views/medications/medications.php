@@ -33,14 +33,14 @@ $page_title = 'Médicaments';
                         </div>
                         <div class="input-field col s12">
                             <select class="validate blue">
-                                <option value="" disabled selected>Choisissez un type</option>
-                                <option value="1">Anticonvulsivant</option>
-                                <option value="2">Neuroleptique</option>
-                                <option value="3">Somnifère</option>
+                                <option class="blue" value="" disabled selected>Choisissez un type</option>
+                                <option class="blue" value="1">Anticonvulsivant</option>
+                                <option class="blue" value="2">Neuroleptique</option>
+                                <option class="blue" value="3">Somnifère</option>
                             </select>
                             <label>Type de substance</label>
                         </div>
-                        <h5>Par sentiments</h5>
+                        <h5>Par état</h5>
                         <div class="row center-align">
                             <div class="col s4 center-align">
                                 <button style="outline: none;border: none;background: #424242; white-space: nowrap; padding: 10px 20px" class="waves-effect waves-dark">

@@ -22,24 +22,26 @@ class ActivitesController
         }
     }
 
-    public function participateTo(int $activityId, String $name, String $surname, bool $state)
+    public function participateTo(int $activityId, String $name, String $surname)
     {
         $activityModel = new ActivitiesModel();
 
         $exists = $activityModel->getParticipant($activityId, $name, $surname);
         $added = $activityModel->addParticipant($activityId, $name, $surname);
+        
         if ($added == true) {
             $this->data = json_encode([
                 "exists" => $exists,
                 "added" => true,
                 "state" => false
             ]);
-        }
-        else if ($added == false) {
+        } else {
+            $remove = $activityModel->removeParticipant($activityId, $name, $surname);
             $this->data = json_encode([
                 "exists" => $exists,
                 "added" => false,
-                "state" => true
+                "state" => true,
+                "removed" => $remove
             ]);
         }
     }
