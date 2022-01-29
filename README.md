@@ -1,8 +1,8 @@
 # GSB (PHP)
 
-From scratch.
-Site web pour le laboratoire fictif GSB.
-Utilisant PHP + TypeScript.
+Site web de présentation de médicaments (liste de composés chimiques) et liste des activités proposées pour le laboratoire fictif GSB.
+
+Utilisant PHP + TypeScript avec le framework CSS : Materialize.
 
 (projet scolaire techs au choix)
 
